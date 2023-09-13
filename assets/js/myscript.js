@@ -1,9 +1,21 @@
 const { createApp } = Vue
 
-  createApp({
+createApp({
     data() {
-      return {
-        // message: 'Hello Vue!'
-      }
+        return {
+            todoList: [
+                // {done: false},
+            ],
+            inputText: "",
+        }
+    },
+
+    methods: {
+        addText() {
+            this.todoList.push(this.inputText)
+        }
     }
+
+
+    
 }).mount('#app')

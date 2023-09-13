@@ -19,10 +19,23 @@
 </head>
 <body>
     
-
     <div id="app">
 
+        <div class="container">
         
+            <div>
+
+                <input type="text" v-model="inputText">
+
+                <button @click="addText">Click me!</button>
+            
+                <ul>
+                    <li v-for="item in todoList">
+                        {{item}}
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
    
 
