@@ -21,24 +21,31 @@
     
     <div id="app">
 
-        <div class="container">
-        
-            <div>
+        <div id="general_container" class="container">
 
-                <input type="text" v-model="inputText">
-
-                <button @click="addText">Click me!</button>
+            <input v-model="inputValue" @keyup.enter="addItem()" id="input-todo" type="text">
             
-                <ul>
-                    <li v-for="item in todoList">
-                        {{item}}
-                    </li>
-                </ul>
-            </div>
+            <button @click="addItem()" id="todo-button">
+                Aggiungi alla lista!
+            </button>
+        
+            <ul>
+                <li v-for="(todo, index) in todoList" :class="todo.done == true ? 'text-through' : '' ">
+        
+                    <span @click="doneItem(todo)">
+                        <i class="fa-solid fa-check"></i>
+                    </span> 
+                    
+                    {{todo.text}} 
+                    
+                    <span @click="deleteItem(index)">
+                        <i class="fa-solid fa-xmark"></i>
+                    </span>
+                </li>
+            </ul>        
         </div>
     </div>
-   
-
+            
     <!-- Vue.js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
